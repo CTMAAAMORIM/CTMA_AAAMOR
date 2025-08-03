@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CTMAAAMORIM - Clube de Ténis de Mesa</title>
+<link href="styles_unificado.css" rel="stylesheet"/>
+<link href="styles_unificado.css" rel="stylesheet"/>
+<style>
+        :root {
+            --primary: #4a6fa5;
+            --primary-light: #6d8fc7;
+            --secondary: #6b8e23;
+            --accent: #82b532; /* Cor verde para botões */
+            --accent-hover: #82b532;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --background: #f5f7fa; 
+            --card-bg: #ffffff;
+            --section-bg: #f0f5ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--background);
+            overflow-x: hidden;
+            font-size: 18px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .club-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: contain;
+            background: white;
+            padding: 5px;
+        }
+        
+        .club-name h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .club-name p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            display: flex;
+            gap: 1.2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 0.8rem;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--accent-hover);
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        /* Social Header - Botões verdes */
+        .social-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-right: 1rem;
+        }
+        
+        .social-header a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        
+        .social-header a:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(255, 127, 80, 0.3);
+        }
+        
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('https://images.unsplash.com/photo-1593111774240-d529f12e2c3c?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            animation: fadeIn 1.5s ease;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        #hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 1px 1px 3px var(--accent);
+        }
+        
+        #hero p {
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px var(--accent);
+            margin: 0 10px;
+        }
+        
+        .cta-button:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px var(--accent);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 6rem 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.8rem;
+            color: var(--primary);
+            position: relative;
+            font-weight: 700;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+        
+        /* Sobre Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Notícias Section */
+        #noticias {
+            background-color: var(--section-bg);
+        }
+        
+        .noticias-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .noticia-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .noticia-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .noticia-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .noticia-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .noticia-card:hover .noticia-img img {
+            transform: scale(1.05);
+        }
+        
+        .noticia-content {
+            padding: 2rem;
+        }
+        
+        .noticia-date {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+        
+        .noticia-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .noticia-content p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .noticia-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .noticia-link:hover {
+            color: var(--accent-hover);
+            transform: translateX(5px);
+        }
+        
+        .noticia-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .noticia-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Galeria Section */
+        #galeria {
+            background-color: var(--card-bg);
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 260px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* Parcerias e Apoios Section */
+        #parcerias e apoios {
+            background-color: var(--card-bg);
+        }
+        
+        .parcerias e apoios-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .parcerias e apoios-item {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 260px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .parcerias e apoios-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+        
+        .parcerias e apoios-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .parcerias e apoios-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .parcerias e apoios-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .parcerias e apoios-item:hover .parcerias e apoios-caption {
+            transform: translateY(0);
+        }
+               
+        /* Documentos Section */
+        #documentos {
+            background-color: var(--section-bg);
+        }
+        
+        .documentos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .documento-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .documento-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .documento-icon {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 3.5rem;
+            flex: 0 0 auto;
+        }
+        
+        .documento-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+        }
+        
+        .documento-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .documento-content p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            line-height: 1.7;
+            flex: 1;
+        }
+        
+        .documento-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+        
+        .documento-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #ecf0f1;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-logo .club-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            align-self: flex-start;
+        }
+        
+        .footer-logo p {
+            margin-top: 1rem;
+            line-height: 1.7;
+            color: #bdc3c7;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 1.8rem;
+            color: var(--accent);
+            position: relative;
+            font-size: 1.5rem;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 1.1rem;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid #3a506b;
+            font-size: 1rem;
+            color: #95a5a6;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            nav {
+                gap: 0.8rem;
+            }
+            
+            #hero h2 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            #hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            #hero p {
+                font-size: 1.4rem;
+            }
+            
+            section h2 {
+                font-size: 2.5rem;
+            }
+            
+            .social-header {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                margin-top: 1.5rem;
+                background: rgba(0, 0, 0, 0.1);
+                padding: 1rem;
+                border-radius: 8px;
+            }
+            
+            nav.active {
+                display: flex;
+            }
+            
+            nav a {
+                padding: 1.2rem;
+                border-radius: 5px;
+                margin-bottom: 0.3rem;
+            }
+            
+            #hero {
+                height: 75vh;
+            }
+            
+            #hero h2 {
+                font-size: 2.3rem;
+            }
+            
+            #hero p {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            section h2 {
+                font-size: 2.2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .hero-content {
+                padding: 2rem;
+            }
+            
+            .cta-button {
+                display: block;
+                margin: 10px auto;
+                max-width: 280px;
+            }
+        }
+        
+        @media (max-width: 480px) { 
+            .club-logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .club-name h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-content {
+                padding: 1.5rem;
+            }
+            
+            #hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            section h2 {
+                font-size: 1.9rem;
+            }
+            
+            .cta-button {
+                padding: 14px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+<link href="styles_unificado.css" rel="stylesheet"/><style>html { scroll-behavior: smooth; }</style><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/></head>
+<body>
+<header>
+<div class="container header-container">
+<div class="logo-container">
+<!-- Seu logotipo aqui -->
+<img alt="logo2 clube Denise.png" class="club-logo" src="logo2 clube Denise.png"/>
+<div class="club-name">
+<h1>CTMAAAMORIM</h1>
+<p>Clube de Ténis de Mesa</p>
+</div>
+</div>
+<div class="social-header">
+<!-- Links para redes sociais - Substitua pelas suas URLs -->
+<a aria-label="Facebook" href="https://www.facebook.com/share/1LFCW9DYH4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a aria-label="Instagram" href="https://www.instagram.com/ctmaaammorim?igsh=cmR4dWdqamt3NzBv" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+<button class="menu-toggle" id="menuToggle">
+<i class="fas fa-bars"></i>
+</button>
+<nav id="mainNav">
+<a href="#sobre">Sobre</a>
+<a href="#noticias">Notícias</a>
+<a href="#galeria">Galeria</a>
+<a href="#parcerias">Parcerias e Apoios</a>
+<a href="#documentos">Documentos</a>
+<a href="#horarios">Horários</a>
+<a href="#localizacao">Localização</a>
+<a href="#contato">Contato</a>
+</nav>
+</div>
+</header>
+<section id="hero">
+<div class="container">
+<div class="hero-content">
+<h2>Bem-vindo ao CTMAAAMORIM</h2>
+<p>Promovendo a paixão pelo ténis de mesa desde 2024</p>
+<div class="hero-buttons">
+<a class="cta-button" href="#contato">Junte-se a nós</a>
+<a class="cta-button" href="#documentos">Documentos</a>
+</div>
+</div>
+</div>
+</section>
+<section class="container" id="sobre">
+<h2>Sobre Nós</h2>
+<div class="section-intro">
+<p>Conheça a história e a missão do nosso clube, dedicado a promover o ténis de mesa para todos</p>
+</div>
+</div>
+<div class="about-content animate-on-scroll">
+<div class="about-text">
+<p>Fundado em 2024, o <strong>Clube de Ténis de Mesa da Associação de Pais da Escola António Alves Amorim</strong> nasceu como uma evolução natural do trabalho desenvolvido pelo Desporto Escolar na modalidade de Ténis de Mesa da referida escola. Com uma trajetória de oito anos marcada por excelentes resultados desportivos, o trabalho desenvolvido no Desporto Escolar destacou-se pelo empenho dos seus atletas e pelo impacto positivo na comunidade escolar.</p>
+<p>Reconhecendo que era tempo de dar um novo "passo em frente", a professora <strong>Denise Morais</strong>, em parceria com a Associação de Pais, concretizou um sonho antigo: a criação de um clube federado, aberto à comunidade local. Assim, no dia <strong>4 de setembro de 2024</strong>, foi oficialmente fundado o <strong>Clube de Ténis de Mesa da Associação de Pais da Escola António Alves Amorim</strong>.</p>
+<p>Desde então, o clube tem sido um espaço de crescimento, dedicação e promoção do desporto, envolvendo não apenas os alunos, mas também as suas famílias e a comunidade em geral. Com cerca de <strong>26 atletas inscritos</strong>, o clube participa ativamente em treinos, atividades e competições.</p>
+<p>A <strong>26 de fevereiro de 2025</strong>, o clube deu mais um passo importante na sua consolidação, tornando-se uma entidade independente sob a designação <strong>ASSOCIAÇÃO CTMAAAMORIM</strong>.</p>
+<p>O <strong>Clube de Ténis de Mesa António Alves Amorim</strong> é hoje um exemplo inspirador de como o desporto pode unir pessoas, promover valores e criar histórias de sucesso. Com uma trajetória promissora, continuará certamente a crescer, a desenvolver a modalidade e a afirmar-se como uma referência de ética, solidariedade e excelência desportiva na comunidade.</p>
+</div>
+<div class="about-image">
+<img alt="Treinos1.jpg" src="treinos.jpg"/>
+</div>
+</div>
+</section>
+<section id="noticias">
+<div class="container">
+<h2>Notícias do Clube</h2>
+<div class="section-intro">
+<p>Fique por dentro das últimas novidades, eventos e resultados do CTMAAAMORIM</p>
+</div>
+<div class="noticias-container animate-on-scroll">
+<div class="noticia-card">
+<div class="noticia-img">
+<img alt="Torneio de ténis de mesa" src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&amp;w=2070&amp;auto=format&amp;fit=crop"/>
+</div>
+<div class="noticia-content">
+<span class="noticia-date">1 setembro 2025</span>
+<h3>Eventos do Clube</h3>
+<p>Brevemente.</p>
+<a class="noticia-link" href="#">Ler mais <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+<div class="noticia-card">
+<div class="noticia-img">
+<img alt="Aula de tênis de mesa" src="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&amp;w=1984&amp;auto=format&amp;fit=crop"/>
+</div>
+<div class="noticia-content">
+<span class="noticia-date">1 setembro 2025</span>
+<h3>Início dos Treinos, brevemente</h3>
+<p>Brevemente</p>
+<a class="noticia-link" href="#">Ler mais <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+<div class="noticia-card">
+<div class="noticia-img">
+<img alt="Equipe de tênis de mesa" src="https://images.unsplash.com/photo-1587280501635-a19de238a81e?q=80&amp;w=2070&amp;auto=format&amp;fit=crop"/>
+</div>
+<div class="noticia-content">
+<span class="noticia-date">1 setembro 2025</span>
+<h3>Outras notícias</h3>
+<p>Brevemente</p>
+<a class="noticia-link" href="#">Ler mais <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="galeria">
+<div class="container">
+<h2>Galeria</h2>
+<div class="section-intro">
+<p>Momentos marcantes, torneios e eventos do nosso clube</p>
+</div>
+<div class="gallery-container animate-on-scroll">
+<div class="gallery-item">
+<img alt="Partida de tênis de mesa" src="Primeiro_Treino1.png"/>
+<div class="gallery-caption">Primeiro Treino</div>
+</div>
+<div class="gallery-item">
+<img alt="Treino de tênis de mesa" src="captação_1ciclo.jpeg"/>
+<div class="gallery-caption">Captação_1º_Ciclo</div>
+</div>
+<div class="gallery-item">
+<img alt="Equipe de tênis de mesa" src="Torneio_Nacional.jpg"/>
+<div class="gallery-caption">Torneios Nacionais</div>
+</div>
+<div class="gallery-item">
+<img alt="Competição de tênis de mesa" src="Campeonato_distrital.jpeg"/>
+<div class="gallery-caption">Campeonato Distrital</div>
+</div>
+<div class="gallery-item">
+<img alt="Aula de tênis de mesa" src="ParaTM.jpg"/>
+<div class="gallery-caption">Para Ténis de Mesa</div>
+</div>
+<div class="gallery-item">
+<img alt="Evento social" src="torneio_iberico.jpeg"/>
+<div class="gallery-caption">Torneio Ibérico</div>
+</div>
+</div>
+</div>
+</section>
+<section id="parcerias">
+<div class="container">
+<h2>Parcerias e Apoios</h2>
+<div class="section-intro">
+<p>Convénios com Instituições, Empresas e Patrocinadores</p>
+</div>
+<div class="parcerias e apoios-container animate-on-scroll">
+<div class="parcerias e apoios-item">
+<img alt="Associação Ténis de Mesa de Aveiro" src="ATMA.png"/>
+<div class="parcerias e apoios-caption">Associação ténis de mesa Aveiro</div>
+</div>
+<div class="parcerias e apoios-item">
+<img alt="AE António Alves Amorim" src="AEAAA.png"/>
+<div class="parcerias e apoios-caption">AE António Alves Amorim</div>
+</div>
+<div class="parcerias e apoios-item">
+<img alt="Desporto Escolar" src="DE.jpg"/>
+<div class="parcerias e apoios-caption">Desporto Escolar</div>
+</div>
+<div class="parcerias e apoios-item">
+<img alt="Junta de Freguesia de Lourosa" src="JF.jpg"/>
+<div class="parcerias e apoios-caption">Junta de Freguesia de Lourosa</div>
+</div>
+<div class="parcerias e apoios-item">
+<img alt="Câmara Municipal Santa Maria da Feira" src="SMF.png"/>
+<div class="parcerias e apoios-caption">Câmara Municipal da Feira</div>
+</div>
+<div class="parcerias e apoios-item">
+<img alt="HMC" src="HMC.jpg"/>
+<div class="parcerias e apoios-caption">HMC</div>
+</div>
+<div class="parcerias e apoios-item">
+<img alt="Butterfly" src="butterfly.jpg"/>
+<div class="parcerias e apoios-caption">Butterfly</div>
+</div>
+</div>
+</div>
+</section>
+<section id="documentos">
+<div class="container">
+<h2>Documentos</h2>
+<div class="section-intro">
+<p>Estatutos, regulamentos e documentos oficiais do nosso clube</p>
+</div>
+<div class="documentos-container animate-on-scroll">
+<div class="documento-card">
+<div class="documento-icon">
+<i class="fas fa-file-contract"></i>
+</div>
+<div class="documento-content">
+<h3>Organigrama do Clube</h3>
+<p>Documento que estabelece a estrutura organizacional do CTMAAAMORIM.</p>
+<a class="documento-btn" href="Organograma simples colorido (3).pdf">Baixar PDF <i class="fas fa-download"></i></a>
+</div>
+</div>
+<div class="documento-card">
+<div class="documento-icon">
+<i class="fas fa-book"></i>
+</div>
+<div class="documento-content">
+<h3>Estatuto & Regulamento Interno</h3>
+<p>Documento que estabelece a constituição, objetivos, estrutura organizacional, conjunto de normas que detalham o funcionamento diário do clube, direitos e deveres dos membros, regras de utilização das instalações e procedimentos disciplinares.</p>
+<a class="documento-btn" href="Regulamento Interno CF CTMAAA.pdf">Baixar PDF <i class="fas fa-download"></i></a>
+</div>
+</div>
+<div class="documento-card">
+<div class="documento-icon">
+<i class="fas fa-balance-scale"></i>
+</div>
+<div class="documento-content">
+<h3>Código de Conduta</h3>
+<p>Documento que estabelece os princípios éticos e padrões de comportamento esperados de todos os membros do clube, atletas, treinadores e dirigentes.</p>
+<a class="documento-btn" href="#">Baixar PDF <i class="fas fa-download"></i></a>
+</div>
+</div>
+<div class="documento-card">
+<div class="documento-icon">
+<i class="fas fa-balance-scale"></i>
+</div>
+<div class="documento-content">
+<h3>Atletas Federados </h3>
+<p>Documentos necessários para filiação dos atletas no clube .</p>
+<a class="documento-btn" href="exame-medico (1).pdf">Certificado de Aptidão Física <i class="fas fa-download"></i></a>
+<a class="documento-btn" href="Impresso_2_Boletim_inscricao_individual 25:26.docx">Ficha de Inscrição <i class="fas fa-download"></i></a>
+<a class="documento-btn" href="AUTORIZACAO-DE-USO-de-IMAGEM.pdf">Direitos de Imagem <i class="fas fa-download"></i></a>
+<a class="documento-btn" href="#">Proteção de dados <i class="fas fa-download"></i></a>
+<a class="documento-btn" href="DECLARACAO-DE-JOGADOR-MENOR.pdf">Declaração de jogador menor<i class="fas fa-download"></i></a>
+</div>
+</div>
+</section>
+<script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+<section id="horarios"><h2>Horário</h2><table class="schedule-table"><thead><tr><th>Hora</th><th>Segunda</th><th>Terça</th><th>Quarta</th><th>Quinta</th><th>Sexta</tr></thead><tbody><tr><td>17:00</td><td>Treino</td><td></td><td></td><td></td><td></td></tr><tr><td>18:00</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>19:00</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>20:00</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>21:00</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>22:00</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></section><section id="localizacao"><h2>Localização</h2><iframe allowfullscreen="True" height="300" loading="lazy" src="https://www.google.com/maps?q=Rua+da+Escola+C%2BS,+Lourosa,+Portugal&amp;output=embed" style="border:0;" width="100%"></iframe></section><section id="contato"><h2 id="contato-title">Contato</h2><div class="contato-container"><div class="contato-info">
+<p><strong>Email:</strong> ctmaaamorim@gmail.com</p>
+<p><strong>Telefone:</strong> +351 912 949 109</p>
+<p><strong>Morada:</strong> Rua da Escola C+S, nº175, 4535-082 Lourosa, Portugal</p>
+</div><div class="form-container">
+<form>
+<input name="nome" placeholder="Seu nome" required="" type="text"/>
+<input name="email" placeholder="Seu email" required="" type="email"/>
+<textarea name="mensagem" placeholder="Sua mensagem" required="" rows="5"></textarea>
+<button type="submit">Enviar</button>
+</form>
+</div></div></section></body>
+<footer>
+<div class="container">
+<div class="footer-container">
+<div class="footer-logo">
+<img alt="logo2 clube Denise.png" class="club-logo" src="logo2 clube Denise.png"/>
+<h3>CTMAAAMORIM</h3>
+<p>Promovendo a paixão pelo ténis de mesa desde 2024. Um espaço para todos os amantes deste desporto fascinante.</p>
+<div class="social-links">
+<a aria-label="Facebook" href="https://www.facebook.com/share/1LFCW9DYH4/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a aria-label="Instagram" href="https://www.instagram.com/ctmaaammorim?igsh=cmR4dWdqamt3NzBv" target="_blank"><i class="fab fa-instagram"></i></a>
+<a aria-label="YouTube" href="https://www.youtube.com/@CTMAAAMORIM">
+<i class="fab fa-youtube"></i>
+</a>
+<a aria-label="WhatsApp" href="https://wa.me/351912944109?text=Ol%C3%A1%21%20Clique%20no%20bot%C3%A3o%20acima%20para%20falar%20com%20o%20CTMAAAMORIM">
+<i class="fab fa-whatsapp"></i>
+</a>
+</div>
+</div>
+<div class="footer-links">
+<h3>Menu</h3>
+<ul>
+<li><a href="#sobre">Sobre Nós</a></li>
+<li><a href="#noticias">Notícias</a></li>
+<li><a href="#galeria">Galeria</a></li>
+<li><a href="#parcerias">Parcerias e Apoios</a></li>
+<li><a href="#documentos">Documentos</a></li>
+<li><a href="#horarios">Horários</a></li>
+<li><a href="#localizacao">Localização</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h3>Documentos</h3>
+<ul>
+<li><a href="#documentos">Estatutos</a></li>
+<li><a href="Regulamento Interno CF CTMAAA.pdf">Regulamento Interno</a></li>
+<li><a href="#documentos">Código de Conduta</a></li>
+<li><a href="#documentos">Ficha de Inscrição</a></li>
+<li><a href="#documentos">Política de Privacidade</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h3>Contato</h3>
+<ul>
+<li><a href="mailto:ctmaaamorim@gmail.com">ctmaaamorim@gmail.com</a></li>
+<li><a href="tel:+351912949109">+351 912 949 109</a></li>
+<li>Rua da Escola C+S, nº175, 4535-082 Lourosa, Portugal</li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2025 CTMAAAMORIM - Todos os direitos reservados</p>
+</div>
+</div>
+</footer>
+</html>
